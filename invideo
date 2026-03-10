@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة قصي وردة الذكية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: 0.3s; }
+        .dark { background-color: #0f172a; color: white; }
+    </style>
+</head>
+<body class="dark" id="bodyTag">
+
+    <header class="p-4 border-b border-gray-700 flex justify-between items-center">
+        <div class="text-sm">
+            <span class="text-blue-400 font-bold">المطور: قصي وردة</span><br>
+            <span class="text-xs text-gray-400">حاصل على شهادات جوجل ومايكروسوفت</span>
+        </div>
+        <div class="flex gap-3">
+            <button onclick="toggleTheme()" class="p-2 bg-gray-800 rounded-full"><i class="fas fa-moon"></i></button>
+            <button class="p-2 bg-gray-800 rounded-full"><i class="fas fa-cog"></i></button>
+            <button class="p-2 bg-gray-800 rounded-full"><i class="fas fa-user"></i></button>
+        </div>
+    </header>
+
+    <main id="mainContent" class="flex flex-col items-center justify-center min-h-[80vh] p-6">
+        <div id="welcomeScreen" class="text-center">
+            <h1 class="text-3xl font-bold mb-6">أهلاً بك سيد قصي في منصة التعلم الذكية</h1>
+            <p class="mb-8 text-gray-400">يرجى تسجيل الدخول للبدء في الدردشة والتعلم</p>
+            <div class="grid gap-4 w-64 mx-auto">
+                <button onclick="startApp()" class="bg-red-600 p-3 rounded-lg"><i class="fab fa-google ml-2"></i> دخول عبر جوجل</button>
+                <button onclick="startApp()" class="bg-blue-600 p-3 rounded-lg"><i class="fab fa-facebook ml-2"></i> دخول عبر فيسبوك</button>
+                <button onclick="startApp()" class="bg-black p-3 rounded-lg"><i class="fab fa-tiktok ml-2"></i> دخول عبر تيك توك</button>
+            </div>
+        </div>
+
+        <div id="chatScreen" class="hidden w-full max-w-4xl bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
+            <div class="h-96 p-4 overflow-y-auto bg-gray-900" id="chatBox">
+                <div class="bg-gray-700 p-3 rounded-lg mb-4 w-fit">مرحباً! أنا مساعدك الذكي، كيف يمكنني مساعدتك اليوم؟</div>
+            </div>
+            
+            <div class="p-4 border-t border-gray-700 flex flex-col gap-3">
+                <div class="flex justify-around text-gray-400 mb-2">
+                    <button title="ميكروفون"><i class="fas fa-mic"></i></button>
+                    <button title="كاميرا"><i class="fas fa-camera"></i></button>
+                    <button title="مشاركة شاشة"><i class="fas fa-desktop"></i></button>
+                    <button title="رفع صورة"><i class="fas fa-image"></i></button>
+                    <button title="رفع ملفات"><i class="fas fa-file-pdf"></i></button>
+                </div>
+                <div class="flex gap-2">
+                    <input type="text" placeholder="اسأل أي شيء..." class="flex-1 p-3 bg-gray-700 rounded-lg outline-none">
+                    <button class="bg-blue-500 px-6 rounded-lg"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-4 text-center border-t border-gray-700">
+        <button onclick="showContact()" class="text-xs bg-gray-800 px-4 py-2 rounded-full hover:bg-gray-700">
+            تواصل معنا <i class="fas fa-chevron-up mr-1"></i>
+        </button>
+        <div id="contactInfo" class="hidden mt-4 text-sm animate-bounce">
+            <p>واتساب: <a href="https://wa.me/963938992591" class="text-green-500">+963938992591</a></p>
+            <p>فيسبوك: <span class="text-blue-400">QR Wardh</span></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.getElementById('bodyTag').classList.toggle('dark');
+        }
+        function startApp() {
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            document.getElementById('chatScreen').classList.remove('hidden');
+        }
+        function showContact() {
+            document.getElementById('contactInfo').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
